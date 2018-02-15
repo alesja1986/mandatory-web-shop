@@ -1,3 +1,3 @@
 # mandatory-web-shop
 
-.idea/
+Alesja's inlämmningar
