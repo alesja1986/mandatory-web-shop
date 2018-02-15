@@ -1,0 +1,14 @@
+
+body{max-width:1300px;
+     margin: auto;}
+#products ul{
+    display:inline-block;
+    list-style: none;
+    margin: auto;
+    margin-top: 2em;
+}
+
+img{
+  max-height: 250px;
+}
+
