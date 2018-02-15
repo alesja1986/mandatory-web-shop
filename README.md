@@ -1,1 +1,3 @@
 # mandatory-web-shop
+
+.idea/
