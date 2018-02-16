@@ -1,25 +1,36 @@
 <!doctype html>
-<meta charset="utf-8"/>
+<meta charset="utf-8" xmlns="http://www.w3.org/1999/html"/>
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="products"></div>
-<div id="checkout ">
-    <form>
-        First name:<br>
-        <input type="text" name="firstname" ><br>
-        Last name:<br>
-        <input type="text" name="lastname"><br>
-        Email adress:<br>
-        <input type="email"> <br>
-        Phone number:<br>
-        <input type="tel"> <br>
-        <input type="submit" value="Submit">
 
-    </form>
+
+<input type="button" value="Show Products" id="showProducts">
+<input type="button" value="Checkout page" id="checkOutPage">
+<div id="products"></div>
+<div id="checkout">
+    <form name="myForm">
+        * First name:<br>
+        <input type="text" name="fname" placeholder="First name.."><p></p>
+        * Last name:<br>
+        <input type="text" name="lname" placeholder="Last name..."><p></p>
+        * Email adress:<br>
+        <input type="email" name="email" placeholder="Email.."><p></p>
+        Phone number:<br>
+        <input type="tel" name="telnr" placeholder="Tel number..."> <p></p>
+        * Street adress:<br>
+        <input type="text" name="adress" placeholder="Street adress..."><p></p>
+        * Zip code:<br>
+        <input type="text" name="zip" placeholder="Zip code..."><p></p><br>
+        * City:<br>
+        <input type="text" name="city" placeholder="City..."><p></p>
+       <br> <textarea  id="textarean" name="message" style="width:200px; height:100px">
+        Message..</textarea>
+        <input type="bu" value="Submit" id="subBtn">
+</form>
 </div>
 
 <script src="script.js"></script>

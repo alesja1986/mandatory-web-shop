@@ -1,14 +1,38 @@
 
 body{max-width:1300px;
      margin: auto;}
+
 #products ul{
-    display:inline-block;
-    list-style: none;
-    margin: auto;
-    margin-top: 2em;
-}
+     display:inline-block;
+     list-style: none;
+     margin: auto;
+     margin-top: 2em;
+ }
 
 img{
   max-height: 250px;
+}
+
+form {
+    margin-top:2em;
+    margin-left: 2em;
+}
+
+#products,#checkout{
+    display: none;
+}
+
+#checkOutPage,#showProducts {
+    background-color:lightgoldenrodyellow;
+    width: 120px;
+    height: 40px;
+    font-size:small;
+}
+
+p{ font-size: 13px;
+    color: red;
+    margin-bottom: 0.5em;
+
+
 }
 
