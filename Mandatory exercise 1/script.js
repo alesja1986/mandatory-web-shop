@@ -18,7 +18,7 @@ function naviGation () {
     });
 };
 
-//array med kläd produkter
+//object med arrays som innerhåller kläd produkter
 const clothes = [
       { name: "Kappa",
         price: 700,
@@ -55,7 +55,7 @@ let printClothes = clothes.map(cloth =>
      <li>${cloth.description}</li> 
     </ul>`);
 printsClothes = printClothes.join(" "); // använder join("") för att bli av med comma tecknet som finns i arrayn
-document.getElementById('products').innerHTML=printsClothes; //skriver ut listor i html
+document.getElementById('products').innerHTML=printsClothes;
 
 //form validation function
 function validateForm() {
@@ -90,12 +90,13 @@ function validateForm() {
              document.getElementsByTagName('p')[5].innerHTML="Enter correct zip code! It should have 5 numbers. ";
     }else {  document.getElementsByTagName('p')[5].innerHTML = "";}
 
-    //validation for zip code
+    //validation for city
     let city = document.forms["myForm"]["city"].value;
     if (city == ""){
              document.getElementsByTagName('p')[6].innerHTML="Enter correct city name ";
     }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
 
+    //testar om allt är utskrivet som det ska
     console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
                  Adress : ${adress}, Zip : ${zip}, City : ${city}`);
     return;
