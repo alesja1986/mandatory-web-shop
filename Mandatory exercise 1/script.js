@@ -1,6 +1,24 @@
-naviGation(); //denna function ska anropas direkt när man kommer till sidan för att kunna navigera
+naviGation();
 
+//navigationen på sidan hanteras i denna function
+function naviGation () {
 
+    document.getElementById('showProducts').addEventListener('click', function(){
+        this.style.backgroundColor = 'lightblue';
+        document.getElementById('checkOutPage').style.backgroundColor = 'white';
+        document.getElementById('products').style.display = 'block';
+        document.getElementById('checkout').style.display = 'none';
+    });
+
+    document.getElementById('checkOutPage').addEventListener('click', function(){
+        this.style.backgroundColor = 'lightblue';
+        document.getElementById('showProducts').style.backgroundColor = 'white';
+        document.getElementById('products').style.display = 'none';
+        document.getElementById('checkout').style.display = 'block';
+    });
+};
+
+//array med kläd produkter
 const clothes = [
       { name: "Kappa",
         price: 700,
@@ -28,72 +46,55 @@ const clothes = [
         url:'http://nlyscandinavia.scene7.com/is/image/nlyscandinavia/914262-0093_2?$productpage_slider_desktop$&cropN=0.02,0,0.955,1'}
 ];
 
-//function för att skapa listor med alla produktena
-const printClothes = clothes.map(cloth =>
+//function för att skapa listor med alla produktena i arrayn
+let printClothes = clothes.map(cloth =>
    `<ul>
       <img src="${cloth.url}">
      <li>${cloth.name}</li>
      <li>${cloth.price} kr</li> 
      <li>${cloth.description}</li> 
     </ul>`);
-document.getElementById('products').innerHTML=printClothes; //skriver ut listor i html
-
-
-
-
-//navigationen på sidan hanteras i denna funktion
-function naviGation () {
-
-    document.getElementById('showProducts').addEventListener('click', function(){
-          this.style.backgroundColor = 'pink';
-          document.getElementById('checkOutPage').style.backgroundColor = 'white';
-          document.getElementById('products').style.display = 'block';
-          document.getElementById('checkout').style.display = 'none';
-    });
-
-        document.getElementById('checkOutPage').addEventListener('click', function(){
-        this.style.backgroundColor = 'pink';
-        document.getElementById('showProducts').style.backgroundColor = 'white';
-        document.getElementById('products').style.display = 'none';
-        document.getElementById('checkout').style.display = 'block';
-    });
-};
-
-
+printsClothes = printClothes.join(" "); // använder join("") för att bli av med comma tecknet som finns i arrayn
+document.getElementById('products').innerHTML=printsClothes; //skriver ut listor i html
 
 //form validation function
 function validateForm() {
+
     //validation for name
     let fname = document.forms["myForm"]["fname"].value;
-    if ( (fname == "") || (isNaN(fname))){
-        document.getElementsByTagName('p')[0].innerHTML='Your name must be filled out'; //skriva ut listor i html
-        }
+    if ( fname == "" ){
+               document.getElementsByTagName('p')[0].innerHTML='Your name must be filled out';
+     } else {  document.getElementsByTagName('p')[0].innerHTML = "";}
 
     //validation for last name
     let lname = document.forms["myForm"]["lname"].value;
-    if (lname == ""){
-        document.getElementsByTagName('p')[1].innerHTML='Your Last name must be filled out';
-    }
+    if (lname == "") {
+             document.getElementsByTagName('p')[1].innerHTML = 'Your Last name must be filled out';
+    }else {  document.getElementsByTagName('p')[1].innerHTML = "";}
 
     //validation for email
     let email = document.forms["myForm"]["email"].value;
-    if (email == "" || email > 10 ){
-        document.getElementsByTagName('p')[2].innerHTML='Invalid email adress';}
+    if (email == "" || email > 8 ){
+             document.getElementsByTagName('p')[2].innerHTML='Invalid email adress';
+    }else {  document.getElementsByTagName('p')[2].innerHTML = "";}
 
     //validation for adress
     let adress = document.forms["myForm"]["adress"].value;
-    if (adress == "" || adress < 5  ){
-        document.getElementsByTagName('p')[4].innerHTML="Enter correct adress ";}
+    if (adress == "" || adress.length < 5  ){
+             document.getElementsByTagName('p')[4].innerHTML="Enter correct adress ";
+    }else {  document.getElementsByTagName('p')[4].innerHTML = "";}
 
     //validation for zip code
     let zip = document.forms["myForm"]["zip"].value;
-    if (zip !== 4 ){
-        document.getElementsByTagName('p')[5].innerHTML="Enter correct zip code! It should have 5 numbers. ";}
+    if (zip.length !== 5){
+             document.getElementsByTagName('p')[5].innerHTML="Enter correct zip code! It should have 5 numbers. ";
+    }else {  document.getElementsByTagName('p')[5].innerHTML = "";}
 
     //validation for zip code
-    let city = document.forms["myForm"]["zip"].value;
+    let city = document.forms["myForm"]["city"].value;
     if (city == ""){
-        document.getElementsByTagName('p')[6].innerHTML="Enter correct city name ";}
+             document.getElementsByTagName('p')[6].innerHTML="Enter correct city name ";
+    }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
 
     console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
                  Adress : ${adress}, Zip : ${zip}, City : ${city}`);
