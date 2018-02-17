@@ -18,7 +18,7 @@ function naviGation () {
     });
 };
 
-//object med arrays som innerhåller kläd produkter
+//Object med arrays som innerhåller kläd produkter
 const clothes = [
       { name: "Kappa",
         price: 700,
@@ -62,41 +62,42 @@ function validateForm() {
 
     //validation for name
     let fname = document.forms["myForm"]["fname"].value;
-    if ( fname == "" ){
-               document.getElementsByTagName('p')[0].innerHTML='Your name must be filled out';
+
+    if (fname == "" || isNaN(fname)===false){  //kollar om input saknas eller är ett nummer
+               document.getElementsByTagName('p')[0].innerHTML='Korrekt förnamn måste fyllas i !';
      } else {  document.getElementsByTagName('p')[0].innerHTML = "";}
 
     //validation for last name
     let lname = document.forms["myForm"]["lname"].value;
-    if (lname == "") {
-             document.getElementsByTagName('p')[1].innerHTML = 'Your Last name must be filled out';
+    if (lname == "" || isNaN(lname)===false) { //kollar om input saknas eller är ett nummer
+             document.getElementsByTagName('p')[1].innerHTML = 'Korrekt efternamn måste fyllas i !';
     }else {  document.getElementsByTagName('p')[1].innerHTML = "";}
 
     //validation for email
     let email = document.forms["myForm"]["email"].value;
-    if (email == "" || email > 8 ){
-             document.getElementsByTagName('p')[2].innerHTML='Invalid email adress';
+    if (email == "" || email > 8 ){ //kollar om input saknas eller är för kort.
+             document.getElementsByTagName('p')[2].innerHTML='Prova igen och fyll i din korrekta e-post adressen !';
     }else {  document.getElementsByTagName('p')[2].innerHTML = "";}
 
     //validation for adress
     let adress = document.forms["myForm"]["adress"].value;
-    if (adress == "" || adress.length < 5  ){
-             document.getElementsByTagName('p')[4].innerHTML="Enter correct adress ";
+    if (adress == "" || adress.length < 5  ){ //kollar om input saknas eller är för kort.
+             document.getElementsByTagName('p')[4].innerHTML="Fyll i korrekt adress!";
     }else {  document.getElementsByTagName('p')[4].innerHTML = "";}
 
     //validation for zip code
     let zip = document.forms["myForm"]["zip"].value;
-    if (zip.length !== 5){
-             document.getElementsByTagName('p')[5].innerHTML="Enter correct zip code! It should have 5 numbers. ";
+    if (zip.length !== 5 || isNaN(zip)){ //kollar att längden på input är 5 samt om den är inte ett nummer
+             document.getElementsByTagName('p')[5].innerHTML="Postnummer måste bestå av fem siffror !";
     }else {  document.getElementsByTagName('p')[5].innerHTML = "";}
 
     //validation for city
     let city = document.forms["myForm"]["city"].value;
-    if (city == ""){
-             document.getElementsByTagName('p')[6].innerHTML="Enter correct city name ";
+    if (city == "" || isNaN(city)===false){ //kollar om input saknas eller är ett nummer
+             document.getElementsByTagName('p')[6].innerHTML="Skriv in korrekt stads namn ! ";
     }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
 
-    //testar om allt är utskrivet som det ska
+    //testar om allt är utskrivet som det ska i consolen.
     console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
                  Adress : ${adress}, Zip : ${zip}, City : ${city}`);
     return;

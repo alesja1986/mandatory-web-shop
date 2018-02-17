@@ -16,7 +16,7 @@ img{
 
 form {
     margin-top:2em;
-    margin-left:3em;
+    margin-left:2.5em;
     width: 300px;
     color: darkblue;
     background-color:lightgray;
@@ -26,7 +26,6 @@ form input ,label,textarea{
     width: 250px;
     margin-left:20px;
 }
-
 
 #checkout{
     display: none;
@@ -59,13 +58,11 @@ p{ font-size: 13px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-
 }
 
 h3{
     color: white;
     text-align: center;
     background-color: darkblue;
-
 }
 
