@@ -62,7 +62,6 @@ function validateForm() {
 
     //validation for name
     let fname = document.forms["myForm"]["fname"].value;
-
     if (fname == "" || isNaN(fname)===false){  //kollar om input saknas eller är ett nummer
                document.getElementsByTagName('p')[0].innerHTML='Korrekt förnamn måste fyllas i !';
      } else {  document.getElementsByTagName('p')[0].innerHTML = "";}
