@@ -74,9 +74,15 @@ function validateForm() {
 
     //validation for email
     let email = document.forms["myForm"]["email"].value;
-    if (email == "" || email > 8 ){ //kollar om input saknas eller är för kort.
+    if (email == ""){ //kollar om input saknas eller är för kort.
              document.getElementsByTagName('p')[2].innerHTML='Prova igen och fyll i din korrekta e-post adressen !';
     }else {  document.getElementsByTagName('p')[2].innerHTML = "";}
+
+    //validation for telefonen
+    let tel = document.forms["myForm"]["telnr"].value;
+    if (isNaN(tel)){ //kollar om input saknas eller är för kort.
+             document.getElementsByTagName('p')[3].innerHTML='Telefon nr ska bestå av nummers!';
+    }else {  document.getElementsByTagName('p')[3].innerHTML = "";}
 
     //validation for adress
     let adress = document.forms["myForm"]["adress"].value;
@@ -98,8 +104,7 @@ function validateForm() {
 
     //testar om allt är utskrivet som det ska i consolen.
     console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
-                 Adress : ${adress}, Zip : ${zip}, City : ${city}`);
-    return;
+                  Last name : ${lname}, Adress : ${adress}, Zip : ${zip}, City : ${city}`);
 };
 
 document.getElementById('subBtn').addEventListener("click", validateForm);
