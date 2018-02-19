@@ -104,7 +104,7 @@ function validateForm() {
 
     //testar om allt är utskrivet som det ska i consolen.
     console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
-                  Last name : ${lname}, Adress : ${adress}, Zip : ${zip}, City : ${city}`);
+                  Tel nr : ${tel}, Adress : ${adress}, Zip : ${zip}, City : ${city}`);
 };
 
 document.getElementById('subBtn').addEventListener("click", validateForm);
