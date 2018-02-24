@@ -3,16 +3,24 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
 
 
 <input type="button" value="Show Products" id="showProducts">
 <input type="button" value="Checkout page" id="checkOutPage">
-
+<a href="#"><i class="fas fa-shopping-cart" id ="cart"></i><span id="visaAntalet"></span></a>
 <div id="products"></div> <!--I denna div ska alla produkter listas ut-->
 
 <div id="checkout">
+    <h3>Din varukorg</h3>
+   <div id="checkoutCart">
+
+       <p></p>
+   </div>
+
+
     <form name="myForm">
         <h3>Fyll i formuläret</h3>
         <label>*Förnamn: </label>

@@ -3,7 +3,7 @@ body{max-width:1300px;
      margin: auto;
 }
 
-#products ul{
+#products ul,#checkoutCart ul{
      display:inline-block;
      list-style: none;
      margin: auto;
@@ -32,16 +32,19 @@ form input ,label,textarea{
 }
 
 #checkOutPage,#showProducts {
-    background-color:white;
     width: 120px;
     height: 40px;
     font-size:small;
+    background-color: white;
 }
 
 #showProducts{
     margin-left:3em;
-    background-color:lightblue;
+    background-color: lightblue;
+
 }
+
+
 
 p{ font-size: 13px;
     color: red;
@@ -66,3 +69,37 @@ h3{
     background-color: darkblue;
 }
 
+.submit{
+    background-color: lightblue;
+
+}
+
+#checkoutCart img {
+    height:150px;
+}
+#checkoutCart li{
+    list-style: none;
+}
+
+#checkoutCart .submit, li:nth-child(2){
+    display:none;
+}
+
+#products #quantitys{
+    display: none;
+}
+
+#checkoutCart #quantitys{
+    display: block;
+}
+
+input{
+    width: 30px;
+}
+
+.sub,.add {
+    color:white;
+
+    margin: auto;
+    background-color: darkslategrey;
+}
