@@ -1,6 +1,6 @@
 naviGation(); //anropar navigationens functionen
 let itemsOf;
-let valdaItemsArray = [];
+let valdaItemsArray = []; //array med items som valda
 let cartItemsCount = 0; //variabel för att räknar hur många produkter är i varukorgen
 
 //navigationen på sidan hanteras i denna function
@@ -18,7 +18,7 @@ function naviGation () {
         document.getElementById('showProducts').style.backgroundColor = 'white';
         products.style.display = products === 'show' ? 'block' : 'none';
         checkout.style.display = checkout === 'checkout' ? 'none' : 'block';
-        showItems();
+        showItems(); //anropar showitems functionen när man kommer in på checkout page
     });
 };
 
@@ -60,16 +60,13 @@ let printClothes = clothes.map(cloth =>
        <li>${cloth.description}</li> 
          <button id="${cloth.name}" class="submit">Lägg i varukorg</button>
      </ul>`);
-
 printsClothes = printClothes.join(" "); // använder join("") för att bli av med comma tecknet som finns i arrayn
 document.getElementById('products').innerHTML=printsClothes;
 
-
-
 cartItems();
-//funktionen för att lägga till items i varukorgen och visa dom på checkOutsidan
+//funktionen för att lägga till items i varukorgen och räkna dem
 function cartItems() {
-    let btn = document.getElementsByClassName('submit'); // reffererar till  köp knappar
+    let btn = document.getElementsByClassName('submit');         // reffererar till  köp knappar
 
     for (var i = 0; i < btn.length; i++) {                     // går genom alla knapparna
         btn[i].onclick = function () {                        // ger till varje knapp en event listener
@@ -89,58 +86,62 @@ function cartItems() {
 } //CartItems functionen stängs här
 
 
-//Function för att visa items
+//Function för att visa items på checkout sidan
 function showItems () {
+
     document.getElementById('checkoutCart').innerHTML = "";
-    let subBtn = document.getElementsByClassName('sub');
-    let addBtn = document.getElementsByClassName('add');
+    for (var i = 0; i < itemsOf.length; i++) {  //går genom  alla items namn (kappa,mössa osv)
+         var itemName = itemsOf[i];
 
-
-    for (var i = 0; i < itemsOf.length; i++) {
-        var itemName = itemsOf[i];
-
-        for (var j = 0; j < clothes.length; j++) {
-            if (clothes[j].name === itemName) {
+        for (var j = 0; j < clothes.length; j++) {    //går genom alla kläd produkter
+            if (clothes[j].name === itemName) {      // kollar om namn på kläder är likadan som namn på item och skriver ut isåfall en sträng med informationen
                 document.getElementById('checkoutCart').innerHTML +=
                     ` <ul><img src="${clothes[j].url}">
                            <li>${clothes[j].name}</li>
                             <li>${clothes[j].price} kr</li>
                             <div id="quantitys">
-                            <button type="button" class="sub" title="If u want less quantity">-</button>
+                            <button type="button" class="sub" id="${clothes[j].name}" title="If u want less quantity">-</button>
                             <input type="text" value="${valdaItemsArray[itemName]}"  class="totalQuantity">
-                            <button type="button" class="add" title="If u want more quantity" >+</button>
+                            <button type="button" class="add" id="${clothes[j].name}"title="If u want more quantity" >+</button>
                             </div>
                             </ul>`;
+                addRemoveItems();
             }
         }
     }
+} //showItems function stängs här
 
-    for (var i = 0; i < subBtn.length; i++) {
-        subBtn[i].onclick = function () {
-            document.getElementById('visaAntalet').innerHTML = cartItemsCount--;//skriver ut räknare vid varukorgen
-            console.log(valdaItemsArray[itemName]--);
+//Function för att kunna lägga till och ta bort items i varukorgen
+function addRemoveItems() {
+    let subBtn = document.getElementsByClassName('sub');     //ref till knapp för att ta bort varan
+    let addBtn = document.getElementsByClassName('add');    //ref till knapp för att lägga till vara på checkout sidan
 
-
+    for (var i = 0; i < subBtn.length; i++) {             //går genom knappar för att ta bort
+        subBtn[i].onclick = function () {                //lägger till eventlistener
+            let itemNames = this.id;                    //kollar om namnet är samma med denna id
+            cartItemsCount--;
+                 document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
+            if (valdaItemsArray[itemNames] === 1) {
+                confirm('Är du säker att du vill ta bort varan?');
+                return cartItemsCount;
+            }
+            else {
+                valdaItemsArray[itemNames]--;
+            }
+            showItems();
         }
     }
 
     for (var i = 0; i < addBtn.length; i++) {
         addBtn[i].onclick = function () {
-            document.getElementById('visaAntalet').innerHTML = cartItemsCount++;//skriver ut räknare vid varukorgen
-            console.log(valdaItemsArray[itemName]++);
+            let itemNames = this.id;
+            valdaItemsArray[itemNames]++;
+            cartItemsCount++;
+            document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
+            showItems();
         }
     }
 }
-
-
-console.log(valdaItemsArray);
-
-
-
-
-
-
-
 
 
 //form validation function
