@@ -123,14 +123,14 @@ function addRemoveItems() {
     for (var i = 0; i < subBtn.length; i++) {             //går genom knappar för att ta bort
         subBtn[i].onclick = function () {                //lägger till eventlistener
             let itemNames = this.id;                    //kollar om namnet är samma med denna id
-            cartItemsCount--;
                  document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
             if (valdaItemsArray[itemNames] === 1) {
-                confirm('Är du säker att du vill ta bort varan?');
-                return cartItemsCount;
+                let conf = confirm('Är du säker att du vill ta bort varan?');
+
             }
             else {
                 valdaItemsArray[itemNames]--;
+                cartItemsCount--;
             }
             showItems();
         }
