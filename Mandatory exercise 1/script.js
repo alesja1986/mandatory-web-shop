@@ -32,8 +32,7 @@ const clothes = [
     { name: "Skjorta",
         price: 660,
         description: 'Ralph lauren nyheten',
-        url:'http://www.stockholmstemcells.se/images/stockholmstemcells.se/kvinna-ralph-lauren-skjortor-mercer-polo-68ZH.jpg',
-        quantity:0},
+        url:'http://www.stockholmstemcells.se/images/stockholmstemcells.se/kvinna-ralph-lauren-skjortor-mercer-polo-68ZH.jpg',},
 
     { name: "Jeans",
         price: 400,
@@ -85,7 +84,6 @@ function cartItems() {
     }
 } //CartItems functionen stängs här
 
-
 //Function för att visa items på checkout sidan
 function showItems () {
 
@@ -106,6 +104,12 @@ function showItems () {
                             </div>
                             </ul>`;
                 addRemoveItems();
+
+
+                total=0;
+                [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
+                console.log(total);
+
             }
         }
     }
@@ -142,7 +146,7 @@ function addRemoveItems() {
         }
     }
 }
-
+console.log(valdaItemsArray);
 
 //form validation function
 function validateForm() {
@@ -195,6 +199,3 @@ function validateForm() {
 };
 
 document.getElementById('subBtn').addEventListener("click", validateForm);
-
-
-
