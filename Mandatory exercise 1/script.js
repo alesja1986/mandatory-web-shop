@@ -105,10 +105,11 @@ function showItems () {
                             </ul>`;
                 addRemoveItems();
 
-
-                total=0;
+/*  Utskriften är fel,inte hunnit fixa till det tyvärr
+                let total=0;
                 [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
-                console.log(total);
+                parseInt(total);
+ */    document.getElementById('totalSum').innerHTML=`Den totala summan är :  ${total} kr`;
 
             }
         }
