@@ -108,8 +108,9 @@ function showItems () {
 /*  Utskriften är fel,inte hunnit fixa till det tyvärr
                 let total=0;
                 [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
-                parseInt(total);
-    document.getElementById('totalSum').innerHTML=`Den totala summan är :  ${total} kr`;*/
+                parseInt(total);`
+                */
+    document.getElementById('totalSum').innerHTML=`Den totala summan är :`
 
             }
         }
