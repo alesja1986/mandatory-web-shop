@@ -135,7 +135,7 @@ function addRemoveItems() {
             else {
                 valdaItemsArray[itemNames]--;
             }
-            showItems();  console.log(itemsOf); console.log(valdaItemsArray);
+            showItems();
         }
     }
 
