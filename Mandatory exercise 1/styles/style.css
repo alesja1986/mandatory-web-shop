@@ -81,7 +81,7 @@ h3{
     list-style: none;
 }
 
-#checkoutCart .submit, li:nth-child(2){
+#checkoutCart .submit, li:nth-child(1){
     display:none;
 }
 
