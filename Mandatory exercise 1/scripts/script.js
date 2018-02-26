@@ -122,7 +122,6 @@ function addRemoveItems() {
     let subBtn = document.getElementsByClassName('sub');     //ref till knapp för att ta bort varan
     let addBtn = document.getElementsByClassName('add');    //ref till knapp för att lägga till vara på checkout sidan
 
-
     for (var i = 0; i < subBtn.length; i++) {             //går genom knappar för att ta bort
         subBtn[i].onclick = function () {                //lägger till eventlistener
             cartItemsCount--;
@@ -130,13 +129,13 @@ function addRemoveItems() {
                  document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
             if (valdaItemsArray[itemNames] === 1) {
                 let lastItem=itemsOf.indexOf(itemNames);
-                itemsOf.splice(lastItem,1);  //PS! BUGG !!! ITEMS som tagits bort kommer tillbax när man bytit sidan och lagt till nya podukter
-                console.log(itemsOf);
+                delete valdaItemsArray[itemNames];
+                itemsOf.splice(lastItem,1);
             }
             else {
                 valdaItemsArray[itemNames]--;
             }
-            showItems();
+            showItems();  console.log(itemsOf); console.log(valdaItemsArray);
         }
     }
 
