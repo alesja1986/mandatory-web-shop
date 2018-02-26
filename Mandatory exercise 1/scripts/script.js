@@ -82,7 +82,7 @@ function cartItems() {
             document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen
         }
     }
-} //CartItems functionen stängs här
+}
 
 //Function för att visa items på checkout sidan
 function showItems () {
@@ -130,7 +130,8 @@ function addRemoveItems() {
                  document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
             if (valdaItemsArray[itemNames] === 1) {
                 let lastItem=itemsOf.indexOf(itemNames);
-                itemsOf.splice(lastItem,1);
+                itemsOf.splice(lastItem,1);  //PS! BUGG !!! ITEMS som tagits bort kommer tillbax när man bytit sidan och lagt till nya podukter
+                console.log(itemsOf);
             }
             else {
                 valdaItemsArray[itemNames]--;
@@ -194,12 +195,5 @@ function validateForm() {
     if (city === "" || isNaN(city)===false){ //kollar om input saknas eller är ett nummer
         document.getElementsByTagName('p')[6].innerHTML="Skriv in korrekt stads namn ! ";
     }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
-
-    //testar om allt är utskrivet som det ska i consolen.
-    console.log(`First name : ${fname}, Last name : ${lname} , Email: ${email},
-                  Tel nr : ${tel}, Adress : ${adress}, Zip : ${zip}, City : ${city}`);
 };
-
 document.getElementById('subBtn').addEventListener("click", validateForm);
-
-
