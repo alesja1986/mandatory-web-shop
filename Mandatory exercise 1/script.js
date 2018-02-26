@@ -109,7 +109,7 @@ function showItems () {
                 let total=0;
                 [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
                 parseInt(total);
- */    document.getElementById('totalSum').innerHTML=`Den totala summan är :  ${total} kr`;
+    document.getElementById('totalSum').innerHTML=`Den totala summan är :  ${total} kr`;*/
 
             }
         }
@@ -200,3 +200,5 @@ function validateForm() {
 };
 
 document.getElementById('subBtn').addEventListener("click", validateForm);
+
+
