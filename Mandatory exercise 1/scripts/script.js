@@ -122,17 +122,18 @@ function addRemoveItems() {
     let subBtn = document.getElementsByClassName('sub');     //ref till knapp för att ta bort varan
     let addBtn = document.getElementsByClassName('add');    //ref till knapp för att lägga till vara på checkout sidan
 
+
     for (var i = 0; i < subBtn.length; i++) {             //går genom knappar för att ta bort
         subBtn[i].onclick = function () {                //lägger till eventlistener
+            cartItemsCount--;
             let itemNames = this.id;                    //kollar om namnet är samma med denna id
                  document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
             if (valdaItemsArray[itemNames] === 1) {
-                let conf = confirm('Är du säker att du vill ta bort varan?');
-
+                let lastItem=itemsOf.indexOf(itemNames);
+                itemsOf.splice(lastItem,1);
             }
             else {
                 valdaItemsArray[itemNames]--;
-                cartItemsCount--;
             }
             showItems();
         }
@@ -148,26 +149,25 @@ function addRemoveItems() {
         }
     }
 }
-console.log(valdaItemsArray);
 
 //form validation function
 function validateForm() {
 
     //validation for name
     let fname = document.forms["myForm"]["fname"].value;
-    if (fname == "" || isNaN(fname)===false){  //kollar om input saknas eller är ett nummer
+    if (fname === "" || isNaN(fname)===false){  //kollar om input saknas eller är ett nummer
         document.getElementsByTagName('p')[0].innerHTML='Korrekt förnamn måste fyllas i !';
     } else {  document.getElementsByTagName('p')[0].innerHTML = "";}
 
     //validation for last name
     let lname = document.forms["myForm"]["lname"].value;
-    if (lname == "" || isNaN(lname)===false) { //kollar om input saknas eller är ett nummer
+    if (lname === "" || isNaN(lname)===false) { //kollar om input saknas eller är ett nummer
         document.getElementsByTagName('p')[1].innerHTML = 'Korrekt efternamn måste fyllas i !';
     }else {  document.getElementsByTagName('p')[1].innerHTML = "";}
 
     //validation for email
     let email = document.forms["myForm"]["email"].value;
-    if (email == ""){ //kollar om input saknas eller är för kort.
+    if (email === ""){ //kollar om input saknas eller är för kort.
         document.getElementsByTagName('p')[2].innerHTML='Prova igen och fyll i din korrekta e-post adressen !';
     }else {  document.getElementsByTagName('p')[2].innerHTML = "";}
 
@@ -179,7 +179,7 @@ function validateForm() {
 
     //validation for adress
     let adress = document.forms["myForm"]["adress"].value;
-    if (adress == "" || adress.length < 5  ){ //kollar om input saknas eller är för kort.
+    if (adress === "" || adress.length < 5  ){ //kollar om input saknas eller är för kort.
         document.getElementsByTagName('p')[4].innerHTML="Fyll i korrekt adress!";
     }else {  document.getElementsByTagName('p')[4].innerHTML = "";}
 
@@ -191,7 +191,7 @@ function validateForm() {
 
     //validation for city
     let city = document.forms["myForm"]["city"].value;
-    if (city == "" || isNaN(city)===false){ //kollar om input saknas eller är ett nummer
+    if (city === "" || isNaN(city)===false){ //kollar om input saknas eller är ett nummer
         document.getElementsByTagName('p')[6].innerHTML="Skriv in korrekt stads namn ! ";
     }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
 
