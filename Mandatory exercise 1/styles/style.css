@@ -103,3 +103,86 @@ input{
     margin: auto;
     background-color: darkslategrey;
 }
+
+.linken {
+ cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+#reviewPage{
+display: none;
+}
+
+#wrapper{
+    display: flex;
+}
+
+#reviewPage img{
+ max-height: 500px;
+    margin-top: 2em;
+    margin-left: 3em;
+}
+
+
+#itemForRew li{
+    text-align: center;
+
+}
+
+#wrapper{
+    display: grid;
+    grid-template-columns:1fr 1fr;
+}
+
+#recension {
+   justify-content: flex-end;
+    margin: auto;
+    margin-top: 3em;
+}
+
+#recension label{
+    font-size: 20px;
+}
+
+#recension input{
+    width: 200px;
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+
+#recension textarea{
+    width: 400px;
+    height: 200px;
+}
+
+.stars{
+    text-align: center;
+    color: orange;
+    font-size: 20px;
+}
+
+#skickaRew{
+    background-color: #3CBC8D;
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+}
+
+
+#par{
+    display: inline-table;
+}
+#listWithAllReviews{
+    height: 600px;
+}
+
+#utskrift {
+ background-color: lightcyan;
+    text-align: center;
+}

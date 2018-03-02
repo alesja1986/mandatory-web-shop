@@ -3,23 +3,23 @@ let itemsOf;
 let valdaItemsArray = []; //array med items som valda
 let cartItemsCount = 0; //variabel för att räknar hur många produkter är i varukorgen
 
-//navigationen på sidan hanteras i denna function
+//navigationen på sidan hanteras i denna function med jQuery
 function naviGation () {
 
-    document.getElementById('showProducts').addEventListener('click', function(){
-        this.style.backgroundColor = 'lightblue';
-        document.getElementById('checkOutPage').style.backgroundColor = 'white';
-        checkout.style.display = checkout === 'checkout' ? 'block' : 'none';
-        products.style.display = products === 'show' ? 'none' : 'block';
+    $('#showProducts').click(function(){
+        $("#checkout").hide(); $("#products").show();
+        $("#showProducts").css("backgroundColor", "lightblue");
+        $("#checkOutPage").css("backgroundColor", "white");
+        $("#reviewPage").hide();
     });
 
-    document.getElementById('checkOutPage').addEventListener('click', function(){
-        this.style.backgroundColor = 'lightblue';
-        document.getElementById('showProducts').style.backgroundColor = 'white';
-        products.style.display = products === 'show' ? 'block' : 'none';
-        checkout.style.display = checkout === 'checkout' ? 'none' : 'block';
-        showItems(); //anropar showitems functionen när man kommer in på checkout page
-    });
+    $('#checkOutPage').click(function(){
+        $("#products").hide(); $("#checkout").show();
+        $("#checkOutPage").css("backgroundColor", "lightblue");
+        $("#showProducts").css("backgroundColor", "white");
+        $("#reviewPage").hide();
+        showItems();
+    })
 };
 
 //Object med arrays som innerhåller kläd produkter
@@ -53,10 +53,13 @@ const clothes = [
 //function för att skapa listor med alla produktena i arrayn och knappar där man kan ändra antalet varor i korgen
 let printClothes = clothes.map(cloth =>
     `<ul>
+       <span class="linken" id="${cloth.name}">
        <img src="${cloth.url}">
        <li>${cloth.name}</li>
        <li>${cloth.price} kr</li> 
        <li>${cloth.description}</li> 
+       </span>
+        </a>
          <button id="${cloth.name}" class="submit">Lägg i varukorg</button>
      </ul>`);
 printsClothes = printClothes.join(" "); // använder join("") för att bli av med comma tecknet som finns i arrayn
@@ -89,7 +92,7 @@ function showItems () {
 
     document.getElementById('checkoutCart').innerHTML = "";
     for (var i = 0; i < itemsOf.length; i++) {  //går genom  alla items namn (kappa,mössa osv)
-         var itemName = itemsOf[i];
+        var itemName = itemsOf[i];
 
         for (var j = 0; j < clothes.length; j++) {    //går genom alla kläd produkter
             if (clothes[j].name === itemName) {      // kollar om namn på kläder är likadan som namn på item och skriver ut isåfall en sträng med informationen
@@ -105,13 +108,12 @@ function showItems () {
                             </ul>`;
                 addRemoveItems();
 
-/*  Utskriften är fel,inte hunnit fixa till det tyvärr
-                let total=0;
-                [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
-                parseInt(total);`
-                */
-    document.getElementById('totalSum').innerHTML=`Den totala summan är :`
-
+                /*  Utskriften är fel,inte hunnit fixa till det tyvärr
+                                let total=0;
+                                [clothes[j].price].forEach(price => { total +=price * [valdaItemsArray[itemName]];});
+                                parseInt(total);`
+                                */
+                document.getElementById('totalSum').innerHTML=`Den totala summan är :`
             }
         }
     }
@@ -126,7 +128,7 @@ function addRemoveItems() {
         subBtn[i].onclick = function () {                //lägger till eventlistener
             cartItemsCount--;
             let itemNames = this.id;                    //kollar om namnet är samma med denna id
-                 document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
+            document.getElementById('visaAntalet').innerHTML = cartItemsCount;//skriver ut räknare vid varukorgen}
             if (valdaItemsArray[itemNames] === 1) {
                 let lastItem=itemsOf.indexOf(itemNames);
                 delete valdaItemsArray[itemNames];
@@ -152,10 +154,9 @@ function addRemoveItems() {
 
 //form validation function
 function validateForm() {
-
     //validation for name
-    let fname = document.forms["myForm"]["fname"].value;
-    if (fname === "" || isNaN(fname)===false){  //kollar om input saknas eller är ett nummer
+    $fname = document.forms["myForm"]["fname"].value;
+    if ( $fname === "" || isNaN( $fname)===false){  //kollar om input saknas eller är ett nummer
         document.getElementsByTagName('p')[0].innerHTML='Korrekt förnamn måste fyllas i !';
     } else {  document.getElementsByTagName('p')[0].innerHTML = "";}
 
@@ -196,3 +197,61 @@ function validateForm() {
     }else {  document.getElementsByTagName('p')[6].innerHTML = "";}
 };
 document.getElementById('subBtn').addEventListener("click", validateForm);
+
+
+
+//lägger till click event på classe .linken (span elementer på product page ligger i den)
+
+$('.linken').on('click', function() {
+    $("#products").hide();//döljer producterna på första sidan
+    $itemNameforReview = this.id;
+    openReviewPage();
+});
+
+function openReviewPage() {
+    $("#reviewPage").show();
+    for (var j = 0; j < clothes.length; j++) {    //går genom alla kläd produkter o
+
+        if (clothes[j].name === $itemNameforReview) {
+            $('#itemForRew').html(
+                `<img src="${clothes[j].url}">                                                                                                                   
+                     <li>${clothes[j].name}</li>                                                                                                                                               
+                     <lI>${clothes[j].price} kr </lI>                                                                                                                                   
+                  `)}
+        showReviews();
+    }
+}
+
+function showReviews() {
+    $('#skickaRew').on('click', function () {
+
+        $nameInput = $('#firstName').val();
+        $messageInput = $('#textareans').val();
+        $('#nameOfuser').html(`Name: ${$nameInput}`);
+        $('#messageText').html(`Recension: ${$messageInput}`);
+
+        if(this.className === $itemNameforReview){
+        }
+        else {
+            //ändrar class namn efter review
+        }
+    });
+}
+
+
+
+
+
+$('#textareans').val('');
+$('#firstName').val('');
+
+
+
+
+
+
+
+
+
+
+

@@ -10,16 +10,18 @@
 
 <input type="button" value="Show Products" id="showProducts">
 <input type="button" value="Checkout page" id="checkOutPage">
-<a href="#checkOutPage"><i class="fas fa-shopping-cart" id ="cart"></i><span id="visaAntalet"></span></a>
+<a href="#checkOutPage"><i class="fas fa-shopping-cart" id ="cart"></i> <span id="visaAntalet"> </span></a>
 <div id="products"></div> <!--I denna div ska alla produkter listas ut-->
 
-<div id="checkout">
-    <h3>Din varukorg</h3>
-   <div id="checkoutCart">
-       <p></p>
-   </div>
-    <h3 id="totalSum"> </h3>
 
+
+
+<div id="checkout">
+    <h3>Din varukorg </h3>
+    <div id="checkoutCart">
+        <p></p>
+    </div>
+    <h3 id="totalSum"> </h3>
     <form name="myForm">
         <h3>Fyll i formuläret</h3>
         <label>*Förnamn: </label>
@@ -38,9 +40,40 @@
         <input type="text" name="city" placeholder="Ort..."><p></p>
         <br> <textarea  id="textarean" name="message" placeholder="Meddelande..." style="width:250px; height:100px"></textarea><br>
         <input type="button" value="submit" id="subBtn">
-     </form>
+    </form>
 </div>
-<script type="text/javascript" src="../scripts/jquery.js"></script>
-<script src="../scripts/script.js"></script>
+
+
+
+<div id="reviewPage">
+    <div id="wrapper">
+        <div id="itemForRew"></div>
+        <div id="recension">
+            <h1>LÄMNA DIN RECENSION</h1>
+            <label>* Förnamn: </label><br>
+            <input type="text" id="firstName" name="fname" placeholder="Förnamn..">
+            <bR><label> * Meddelande: </label>
+            <br> <textarea  id="textareans" name="message" placeholder="Skriv din recension..."></textarea><br>
+            <div class="stars">
+                <span data-rating-id="1">&#9733;</span>
+                <span data-rating-id="2">&#9733;</span>
+                <span data-rating-id="3">&#9733;</span>
+                <span data-rating-id="4">&#9733;</span>
+                <span data-rating-id="5">&#9733;</span>
+            </div>
+            <input type="button" value="" id="skickaRew">
+        </div>
+        <div id="utskrift" >
+            <h2 id="par">Läs vad andra har tyckt om denna produkt</h2>
+            <h4 id="nameOfuser" class='output-field'></h4>
+            <div id="messageText" class='output-field'></div>
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>
