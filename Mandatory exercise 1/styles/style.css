@@ -70,7 +70,12 @@ h3{
 }
 
 .submit{
-    background-color: lightblue;
+    background-color: darkslategrey;
+    color: white;
+    height: 30px;
+    width: 150px;
+    font-size: 15px;
+    cursor: pointer;
 
 }
 
