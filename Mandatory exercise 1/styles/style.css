@@ -155,19 +155,21 @@ a{
 
 #recension input{
     width: 200px;
+    height: 25px;
     margin-left: 2em;
     margin-bottom: 1em;
+    border: 1px solid darkslategrey;
 }
 
 
 #recension textarea{
     width: 400px;
     height: 200px;
-    border: 1px solid grey;
+    border: 1px solid darkslategrey;
 }
 
 #skickaRew{
-    background-color: #3CBC8D;
+    background-color: darkslategrey;
     color: white;
     font-size: 15px;
     height: 40px;
