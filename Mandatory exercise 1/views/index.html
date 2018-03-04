@@ -54,19 +54,19 @@
             <input type="text" id="firstName" name="fname" placeholder="Förnamn..">
             <bR><label> * Meddelande: </label>
             <br> <textarea  id="textareans" name="message" placeholder="Skriv din recension..."></textarea><br>
-            <div class="stars">
-                <span data-rating-id="1">&#9733;</span>
-                <span data-rating-id="2">&#9733;</span>
-                <span data-rating-id="3">&#9733;</span>
-                <span data-rating-id="4">&#9733;</span>
-                <span data-rating-id="5">&#9733;</span>
+            <input type="text" id="myID"   value="" style="display: none">
+            <div id="stars">
+                <span data-value="1" title='Poor'>&#9733;</span>
+                <span data-value="2"  title='Fair'>&#9733;</span>
+                <span data-value="3"  title='Good'>&#9733;</span>
+                <span data-value="4" title='Very good'>&#9733;</span>
+                <span data-value="5" title='Best ever'>&#9733;</span>
             </div>
-            <input type="button" value="" id="skickaRew">
+            <input type="button" value="" id="skickaRew" class="reviewButtons">
         </div>
-        <div id="utskrift" >
-            <h2 id="par">Läs vad andra har tyckt om denna produkt</h2>
-            <h4 id="nameOfuser" class='output-field'></h4>
-            <div id="messageText" class='output-field'></div>
+        <div >
+            <h4 id="par">Läs vad andra har tyckt om denna produkt</h4>
+            <h4 id="utskrift"></h4>
         </div>
 
     </div>
