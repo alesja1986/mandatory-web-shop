@@ -207,6 +207,21 @@ $('.linken').on('click', function() {
     $itemNameforReview = this.id;        // item som klickad på ska få this.id som är då klädplaggens namn
     $('#myID').val($itemNameforReview); //myID får namnet på produkten som sin value
 
+
+    $('#stars span').on('mouseover', function(){
+        var onStars = parseInt($(this).data('value'), 10);
+        $(this).parent().children('#stars span').each(function(e){
+            if (e < onStars) {
+                $(this).css("color", "orange");
+            }
+            else {
+                //$(this).removeClass('hover');
+                $(this).css("color", "black");
+            }
+        });
+
+    });
+
     $('#stars span').on('click', function() {
         $onStar = parseInt($(this).data('value'), 10); // The star currently selected
         $('#stars').val($onStar);

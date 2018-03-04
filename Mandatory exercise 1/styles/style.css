@@ -161,7 +161,6 @@ a{
     border: 1px solid darkslategrey;
 }
 
-
 #recension textarea{
     width: 400px;
     height: 200px;
@@ -193,7 +192,7 @@ h4{
 
 #stars span{
     cursor: pointer;
-    color:orange;
+
     font-size: 20px;
 }
 #stars{
@@ -202,4 +201,14 @@ h4{
 
 #par{
     border-top: 2px solid green;
+}
+
+
+.hover{
+    color:red;
+}
+
+/* Selected state of the stars */
+.selected {
+    color:orange;
 }
