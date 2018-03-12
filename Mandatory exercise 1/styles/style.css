@@ -1,17 +1,22 @@
 
-body{max-width:1300px;
+body{max-width:1250px;
     margin: auto;
 }
 
+
 #products ul,#checkoutCart ul{
-    display:inline-block;
     list-style: none;
+    display: inline-block;
     margin: auto;
-    margin-top: 2em;
+    width: 200px;
+    height:auto;
 }
 
 img{
-    max-height: 250px;
+display:block;
+height: 200px;
+justify-content:baseline;
+
 }
 
 form {
@@ -133,6 +138,10 @@ a{
 }
 
 
+#reviewPage li:nth-child(1){
+    background-color: red;
+ }
+
 #itemForRew li{
     text-align: center;
 
@@ -173,6 +182,7 @@ a{
     font-size: 15px;
     height: 40px;
     width: 400px;
+    cursor:pointer;
 }
 
 
@@ -212,3 +222,8 @@ h4{
 .selected {
     color:orange;
 }
+
+.linkToThisProduct{
+    cursor:pointer;
+}
+

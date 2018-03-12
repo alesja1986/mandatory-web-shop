@@ -1,0 +1,25 @@
+{
+  "items":[{
+    "Id":1,
+    "ProductID":1,
+    "Name":"Anymous",
+    "Comment":"Love, love, love this magnificent piece of artwork, that now stands proudly at the foot of my bed, next to the television screen. My girlfriend and I absolutely adore it; the craftsmanship is exquisite. It is a bit wobbly, and seems somewhat fragile, so you might not want to leave where it can knocked over easily, but we really love in our bedroom. I saw one of these sasquatch statues on display in a local restaurant, and then I had to own one. In the restaurant they nailed Bigfoot's big feet to the counter, so he wouldn't fall over (or walk away).",
+    "Rating":5
+    },
+    {
+      "Id":2,
+      "ProductID":1,
+      "Name":"Joe",
+      "Comment":"My niece absolutely had to have it! She loves it. Freaked out her cat though. Very realistic (if you're a believer which I'm not), great attention to detail including fingernails, some of which are torn because of his digging through whatever it is they dig through or maybe running through the woods to get away from those Finding Bigfoot people. Glad he escaped and is now in a loving home. Even the cat has grown to tolerate him.",
+      "Rating":4
+    },
+    {
+      "Id":3,
+      "ProductID":1,
+      "Name":"Fredde",
+      "Comment":"A substantial item, a kid couldn't harm it. I got this for my sister's hubby, who loves Xmas and also loves Bigfoot. When my sister said jokingly that she loves the ornaments I send them, and she would even hang Bigfoot on their tree, I took it as a challenge. Found this on Amazon, and I am more than pleased. I look forward to reports of delight from the family when this fellow is among their Christmas morning haul. ",
+      "Rating":3
+    }
+]
+}
+
