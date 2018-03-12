@@ -1,7 +1,7 @@
 naviGation();                 //anropar navigationens functionen
 $cartItemsCount = 1;         //visar till användaren hur många items har man i varukorget
 $valdaItemsArray = [];      //array med items som lagda till varukorgen
-
+$products = "";
 
 //>>>>---------------navigationen på sidan-------------<<<<<<//
 function naviGation () {
@@ -48,6 +48,7 @@ fetch('http://demo.edument.se/api/products')
         document.getElementById('products').innerHTML=showDbProducts; //skriver ut alla hämtade produkter
         openReviewPage(products);
         addProducts(products);
+        $products = products;
     });
 
 
@@ -210,23 +211,19 @@ function addRemoveItems(products,quantity) {
         }
 }
 */
-
-function jsonItemsList(products){
+// functionen för att skriva ut inte klar,bara form som skrivs ut:/
+function jsonItemsList(x){
     let productsToPost = [];
-    let productsAmount = products;
-    for(let i = 0; i < productsAmount; i++) {
-        console.log("test " + i);
-        if (products[i].Quantity > 0) {
-            console.log(products[i]);
-            for (let i = 0; i < products[i].Quantity; i++) {
+    for(let i = 0; i < x.length; i++) {
+        if (x[i].Quantity > 0) {
+            for(let j = 0; j < x[i].Quantity; j++) {
 
-                productsToPost.push(products[i]);
+                productsToPost.push(JSON.stringify(x[i]));
             }
         }
     }
-    console.log(productsToPost);
-    /*
-    let productsToPosttest = productsToPost.join(", ");
+    $makestring = productsToPost.join();
+
     $fname = document.forms["myForm"]["fname"].value;
     $lname = document.forms["myForm"]["lname"].value;
     $email = document.forms["myForm"]["email"].value;
@@ -247,13 +244,12 @@ function jsonItemsList(products){
             ZipCode: $zip,
             City: $city,
             Comment: $comment,
-            OrderItems:productsToPosttest
-        }),
+            OrderItems:$makestring}),
 
         headers: new Headers({
             'Content-Type': 'application/json'
         })
-    })*/
+    })
 }
 
 //form validation function
@@ -317,7 +313,7 @@ function sendOrder(e) {
 }
 
     $('#subBtn').on('click', function () {
-        jsonItemsList(products);
+        jsonItemsList($products);
 
 })
 
